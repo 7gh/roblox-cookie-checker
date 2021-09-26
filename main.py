@@ -18,7 +18,11 @@ def main():
     if r.status_code == 200: #if the status code is 200, it means it works!
       val += 1
       print(colorama.Fore.GREEN + "Found valid cookie!")
+      with open("valid_cookies.txt", "a+") as f:
+        f.write(cookie + "\n")
     else:
       inval += 1
       print(colorama.Fore.RED + "Found invalid cookie!")
+      with open("invalid_cookies.txt", "a+") as f:
+        f.write(cookie + "\n")
 main()
